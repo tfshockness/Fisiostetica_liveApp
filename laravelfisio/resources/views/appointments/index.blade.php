@@ -10,31 +10,14 @@ $subtitle = "Lista de agendamento";
 
 <div class="col-md-12">
     <div class="box">
-    
         <div class="row search-box center">
-            <form class="inline-form">
-                <fieldset class="form-group">
+            <form class="inline-form" action="/agenda" method="GET">
+                <fieldset class="form-group" id="form">
                     <div class="box-header">
                         <div class="col-md-2">
                             <a class="btn btn-app bg-olive" href="{{ url('agenda/create') }}"><i class="fa fa-plus "></i>Novo</a>
                         </div>
-                     <!-- Date range -->
-                        <div class="col-md-4">
-                            <div class="input-group">
-                                <div class="input-group-addon">
-                                    <i class="fa fa-calendar"></i>
-                                </div>
-                                <input type="text" class="form-control" id="daterangepicker">
-                            </div>
-                            <!-- /.input group -->
-                        </div>
-                    <!-- /.form group -->
-                        <div class="form-group col-md-4">
-                            <input type="text" class="form-control" id="search" name="professional_name" placeholder="Buscar por Nome" required>
-                        </div>
-                        <div class="col-md-2">
-                            <input type="submit" class="btn bg-blue form-control" name="" value="buscar" >
-                        </div>
+                        <app-index-search></app-index-search>
                     </div>
                 </fieldset>
             </form>
@@ -98,5 +81,17 @@ $subtitle = "Lista de agendamento";
         </div>
     </div>
 </div>
+
+@endsection
+
+@section('script')
+    <script>
+        function getDate() {
+            $('#datepick').datepicker({
+                format: 'yyyy-mm-dd'
+            });
+
+        };
+    </script>
 
 @endsection
